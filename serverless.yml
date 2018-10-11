@@ -1,0 +1,24 @@
+service: alda-dialogflow
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+
+plugins:
+  - serverless-offline
+  
+
+package:
+  include:
+    - gcloud.json
+
+functions:
+  load:
+    handler: handler.fulfillment
+    events:
+      - http:
+           path: /fulfillmentMessages
+           method: GET
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: './gcloud.json'
