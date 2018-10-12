@@ -1,13 +1,11 @@
 {
-  "name": "dialogflow",
-  "version": "1.0.0",
+  "name": "alda-dialogflow",
+  "version": "0.1.0",
   "main": "index.js",
   "author": "Dirk Hornung <dirkhornung91@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "dialogflow": "^0.7.0"
   },
-  "devDependencies": {
-    "serverless-offline": "^3.27.0"
-  }
+  "devDependencies": {}
 }

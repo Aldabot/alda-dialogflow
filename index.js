@@ -4,7 +4,7 @@ const sessionClient = new dialogflow.SessionsClient();
 
 const projectId = 'alda-57116';
 
-module.exports.fulfillment = async (event, context) => {
+const fulfillment = async (event, context) => {
   const { query, sessionId } = JSON.parse(event.body)
   if(!query || !sessionId)
     return {
@@ -40,3 +40,5 @@ module.exports.fulfillment = async (event, context) => {
     };
   }
 };
+
+module.exports = fulfillment
