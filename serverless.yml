@@ -19,6 +19,6 @@ functions:
     events:
       - http:
            path: /fulfillmentMessages
-           method: GET
+           method: POST
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: './gcloud.json'

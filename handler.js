@@ -5,8 +5,12 @@ const sessionClient = new dialogflow.SessionsClient();
 const projectId = 'alda-57116';
 
 module.exports.fulfillment = async (event, context) => {
-  const sessionId = 'id';
-  const query = 'test';
+  const { query, sessionId } = JSON.parse(event.body)
+  if(!query || !sessionId)
+    return {
+      statusCode: 500,
+      body: 'query or sessionId not set'
+    }
   const languageCode = 'es';
 
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
