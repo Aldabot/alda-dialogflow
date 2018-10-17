@@ -1,3 +1,8 @@
+# Usage
+`yarn add alda-dialogflow`
+`const AldaDialogflow = require('alda-dialogflow')`
+`const client = new AldaDialogflow('---')`
+
 # Help
 needs gcloud.json (gcloud service account)
 
