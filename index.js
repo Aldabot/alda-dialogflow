@@ -1,27 +1,26 @@
+'use strict';
+require('dotenv').config()
 const dialogflow = require('dialogflow');
+
+// Create a new session
 const sessionClient = new dialogflow.SessionsClient();
 
-class AldaDialogflow {
-  constructor(projectId) {
-    this.projectId = projectId;
-  }
+const fulfillment = (text, sessionId) => {
+  const sessionPath = sessionClient.sessionPath(process.env.GCLOUD_PROJECT_ID, sessionId);
 
-  fulfillment(query, sessionId) {
-    const languageCode = 'es';
-    const sessionPath = sessionClient.sessionPath(this.projectId, sessionId);
-
-    const request = {
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: query,
-          languageCode: languageCode,
-        },
+  // The text query request.
+  const request = {
+    session: sessionPath,
+    queryInput: {
+      text: {
+        text,
+        languageCode: 'es',
       },
-    };
-
-    return sessionClient.detectIntent(request)
-      .then(res => res[0].queryResult.fulfillmentMessages)
+    },
   };
+
+  // Send request and log result
+  return sessionClient.detectIntent(request);
 }
-module.exports = AldaDialogflow
+
+module.exports = fulfillment

@@ -1,11 +1,11 @@
 {
   "name": "alda-dialogflow",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "main": "index.js",
   "author": "Dirk Hornung <dirkhornung91@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "dialogflow": "^0.7.0"
-  },
-  "devDependencies": {}
+    "dialogflow": "0.3",
+    "dotenv": "^6.2.0"
+  }
 }
